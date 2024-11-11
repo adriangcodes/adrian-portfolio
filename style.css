@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --custom-green: #558a86;
+    --custom-grey: #35342f;
+    --custom-white: #f1f2f0;
+}
+
+header {
+    background-color: var(--custom-white);
+    color: var(--custom-grey);
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 0.5rem;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline-flex;
+    margin-left: 0.5rem;
+}
+
+#logo {
+    max-width: 15vw;
+    max-height: 10vh;
+}
+
+a {
+    color: var(--custom-grey);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: line-through;
+    background-color: var(--custom-grey);
+    color: var(--custom-white);
+}
+
+main {
+    background-color: var(--custom-white);
+    font-style: color var(--custom-grey)
+}
+
+.headshot-container {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+#headshot {
+    max-height: 50vh;
+}
+
+h1 {
+    font-size: 2.5rem;
+    padding: 0.5rem;
+    color: var(--custom-grey);
+}
+
+p {
+    padding: 0.5rem;
+    color: var(--custom-grey);
+}
+
+footer {
+    background-color: var(--custom-green);
+    color: var(--custom-grey);
+    padding: 1rem 1rem 0.5rem 0.5rem;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+@media screen and (min-width: 1000px) {
+    body {
+        display: flex;
+        flex-direction: row;
+    }
+
+    header {
+        display: inline;
+        max-width: 7.5rem;
+    }
+
+    nav {
+        padding-top: 0.5rem;
+    }
+
+    .headshot-container {
+        display: grid;
+        justify-items: left;
+    }
+
+    img {
+        padding-top: 0.5rem;
+        padding-left: 0.5rem;
+    }
+}

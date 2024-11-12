@@ -155,6 +155,8 @@ footer ul {
 .code {
     padding-left: 3rem;
     padding-bottom: 0.5rem;
+    display: block;
+    overflow-x: auto;
 }
 
 @media screen and (min-width: 1000px) {
@@ -175,6 +177,7 @@ footer ul {
 
     main {
         flex: 1;
+        padding-right: 3rem;
     }
 
     .headshot-container {
@@ -198,7 +201,7 @@ footer ul {
     .project-tiles {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: 0.5rem;
+        grid-gap: 1rem;
         padding-left: 0.5rem;
     }
 

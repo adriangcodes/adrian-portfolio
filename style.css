@@ -185,4 +185,11 @@ footer ul {
         grid-gap: 0.5rem;
         padding-left: 0.5rem;
     }
+
+    #project-cover {
+        width: 100%;
+        min-height: 25rem;
+        max-height: 25rem;
+        object-fit: cover;
+    }
 }

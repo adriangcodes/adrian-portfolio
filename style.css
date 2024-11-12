@@ -2,13 +2,20 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Montserrat, sans-serif;
 }
 
 :root {
     --custom-green: #558a86;
     --custom-grey: #35342f;
     --custom-white: #f1f2f0;
+}
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 1;
+  font-style: normal;
 }
 
 header {
@@ -36,8 +43,7 @@ nav ul li {
 }
 
 #logo {
-    max-width: 15vw;
-    max-height: 10vh;
+    max-width: 10vw;
 }
 
 a {
@@ -53,6 +59,9 @@ a:hover {
 
 main {
     background-color: var(--custom-white);
+    padding-bottom: 1rem;
+    min-height: 75vh;
+    /*min-width: 100vw;*/
 }
 
 .headshot-container {
@@ -64,6 +73,17 @@ main {
 #headshot {
     max-height: 50vh;
     margin: 0.5rem;
+    box-sizing: content-box;
+    animation: headshot-fade 2s;
+}
+
+@keyframes headshot-fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100;
+    }
 }
 
 h1 {
@@ -75,9 +95,20 @@ h1 {
     align-items: center;
 }
 
+h2 {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    color: var(--custom-green);
+}
+
 p {
     padding: 0.5rem 0.5rem 1rem 0.5rem;
     color: var(--custom-grey);
+}
+
+main ul {
+    color: var(--custom-grey);
+    padding: 0.5rem 0.5rem 1rem 2rem;
 }
 
 footer {
@@ -86,8 +117,17 @@ footer {
     padding: 1rem 0.5rem 0rem 0.5rem;
 }
 
+#contact-icons {
+    padding-left: 0.5rem;
+}
+
 footer ul {
     list-style-type: none;
+}
+
+#icon {
+    max-height: 2rem;
+    padding-top: 0.5rem;
 }
 
 @media screen and (min-width: 1000px) {
@@ -98,12 +138,16 @@ footer ul {
 
     header {
         display: inline;
-        max-width: 7.5rem;
     }
 
     nav {
         padding-top: 0.5rem;
         align-items: flex-end;
+        max-width: 5vw;
+    }
+
+    main {
+        flex: 1;
     }
 
     .headshot-container {
@@ -111,17 +155,16 @@ footer ul {
         justify-items: left;
     }
 
-    img {
-        padding-top: 0.5rem;
-        padding-left: 0.5rem;
-    }
-
     h1 {
         justify-content: left;
     }
 
+    p {
+        padding-right: 2rem;
+    }
+
     footer {
         flex-direction: column;
-        padding: 1rem;
+        min-width: 100%;
     }
 }

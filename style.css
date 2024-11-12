@@ -42,7 +42,7 @@ nav ul li {
 
 a {
     color: var(--custom-grey);
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 a:hover {
@@ -53,7 +53,6 @@ a:hover {
 
 main {
     background-color: var(--custom-white);
-    font-style: color var(--custom-grey)
 }
 
 .headshot-container {
@@ -64,23 +63,27 @@ main {
 
 #headshot {
     max-height: 50vh;
+    margin: 0.5rem;
 }
 
 h1 {
     font-size: 2.5rem;
     padding: 0.5rem;
-    color: var(--custom-grey);
+    color: var(--custom-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 p {
-    padding: 0.5rem;
+    padding: 0.5rem 0.5rem 1rem 0.5rem;
     color: var(--custom-grey);
 }
 
 footer {
     background-color: var(--custom-green);
     color: var(--custom-grey);
-    padding: 1rem 1rem 0.5rem 0.5rem;
+    padding: 1rem 0.5rem 0rem 0.5rem;
 }
 
 footer ul {
@@ -88,7 +91,7 @@ footer ul {
 }
 
 @media screen and (min-width: 1000px) {
-    body {
+    .sans-footer {
         display: flex;
         flex-direction: row;
     }
@@ -111,5 +114,14 @@ footer ul {
     img {
         padding-top: 0.5rem;
         padding-left: 0.5rem;
+    }
+
+    h1 {
+        justify-content: left;
+    }
+
+    footer {
+        flex-direction: column;
+        padding: 1rem;
     }
 }

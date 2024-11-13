@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Montserrat, sans-serif;
+  font-family: Roboto Mono, sans-serif;
 }
 
 :root {
@@ -11,11 +11,10 @@
     --custom-white: #f1f2f0;
 }
 
-.montserrat {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 1;
-  font-style: normal;
+.roboto-mono {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 header {
@@ -100,12 +99,6 @@ h2 {
     color: var(--custom-green);
 }
 
-/*h2 > a:hover {
-    text-decoration: line-through;
-    background-color: var(--custom-grey);
-    color: var(--custom-white);
-}*/
-
 p {
     padding: 0.5rem 0.5rem 1rem 0.5rem;
     color: var(--custom-grey);
@@ -124,7 +117,7 @@ main ol {
 footer {
     background-color: var(--custom-green);
     color: var(--custom-grey);
-    padding: 1rem 0.5rem 0rem 0.5rem;
+    padding: 1rem 0.5rem 0.5rem 1rem;
 }
 
 #contact-icons {
@@ -157,6 +150,12 @@ footer ul {
     padding-bottom: 0.5rem;
     display: block;
     overflow-x: auto;
+}
+
+.copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (min-width: 1000px) {

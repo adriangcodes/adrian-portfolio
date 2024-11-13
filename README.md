@@ -6,13 +6,15 @@ This site serves two purposes:
 
 # Changes from Wireframes
 
-The only change from wireframes to note is the removal of the About page. Given the UX and level of content detail on the Home page, the About page felt redundant.
+There are two changes from wireframes: 
+1. Removal of the About page. Given the UX and level of content detail on the Home page, the About page felt redundant.
+2. Mobile nav shifting from burger pop-out to text line.
 
 The Projects page is fully functional, pending real-world content.
 
 # Domain
 
-I have purchased the  domain a5g5.com to host both website and a work-based email address.
+I have purchased the domain adriang.dev to host both website and a work-based email address.
 
 Simultaneous to this site being submitted for DEV1001 Assignment 1, the site will be pushed live via Netlify connected to my Github repo.
 

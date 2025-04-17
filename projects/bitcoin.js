@@ -9,8 +9,6 @@ async function getBTCLivePrice() {
     btcLivePrice.innerHTML = `Live price in ${data.currency} updated at ${formattedDate}: <h1>$${data.amount}</h1>`
 }
 
-// Fetch immediately on page load
 getBTCLivePrice()
 
-// Then refresh every 5 minutes (300,000 milliseconds)
 setInterval(getBTCLivePrice, 300000)

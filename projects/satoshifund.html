@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SatoshiFund">
+    <title>What is Python? | Adrian Gidaro</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/adriang/image/upload/v1731541466/AG_Logo_V2_xmnqns.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+    </style>
+</head>
+<body>
+    <div class="sans-footer">
+        <header>
+            <a href="/index.html"><img src="https://res.cloudinary.com/adriang/image/upload/v1731541466/AG_Logo_V2_xmnqns.png" alt="AG Logo" id="logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="/experience.html">Experience</a></li>
+                    <li><a href="/projects.html">Projects</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h1>SatoshiFund: A P2P Crypto Lending Platform</h1>
+            <img src="https://res.cloudinary.com/adriang/image/upload/v1749117378/kanchanara-5ixVD22x22o-unsplash_uhfn3s.jpg" alt="Kanchanara Unsplash" id="project-cover">
+            <article>
+                <p>
+                    SatoshiFund is a full-stack web app we built as a way to explore what peer-to-peer crypto lending could look like in practice.
+                    The concept is pretty straightforward: borrowers request loans, and lenders can fund them — with all loans backed 1:1 by crypto collateral.
+                </p>
+                <p>
+                    We wanted to create something that felt like a real product, not just a school project, so we focused on building out core functionality
+                    with a clean structure and solid logic behind the scenes.
+                </p>
+
+                <h2>What We Used</h2>
+                <p>
+                    SatoshiFund is built using the MERN stack — that’s <strong>MongoDB</strong>, <strong>Express</strong>, <strong>React</strong>, and <strong>Node.js</strong>.
+                    We also used <strong>Jest</strong> for testing to make sure key features worked as expected.
+                    On the backend, we kept things modular and easy to follow, while on the frontend we aimed for a simple, responsive UI that gets the job done.
+                </p>
+
+                <p>
+                    Authentication is handled with JSON Web Tokens (JWT), and we set up permission levels so that admins and regular users have different access rights.
+                </p>
+
+                <h2>Key Features</h2>
+                <ul>
+                    <li>
+                    <strong>Loan Requests and Funding:</strong> Borrowers can create a loan request with the amount they need. Lenders can browse active requests
+                    and choose to fund one. As a safeguard, borrowers must have enough collateral in their wallet to fully back the loan.
+                    </li>
+                    <li>
+                    <strong>Wallets and Transfers:</strong> Every user gets a digital wallet. When a loan is funded, we automatically transfer the right amounts
+                    between the lender and borrower wallets, and log those transfers with time and transaction details.
+                    </li>
+                    <li>
+                    <strong>Smart Automation:</strong> We added logic that calculates when loans are expected to be completed, based on the terms selected.
+                    This helps keep things consistent and reduces the chance of manual error.
+                    </li>
+                    <li>
+                    <strong>Admin Tools:</strong> Admin users can manage platform data, update user info, and view the full list of loan activity.
+                    Regular users only have access to their own information and actions.
+                    </li>
+                    <li>
+                    <strong>Testing:</strong> We made sure the backend was properly tested. This meant spinning up a temporary test database each time,
+                    so our real data stayed untouched. It also helped us catch bugs early and confirm that routes and logic were working properly.
+                    </li>
+                </ul>
+
+                <h2>What We Learned</h2>
+                <p>
+                    One of the bigger challenges was managing the relationships between different parts of the system — like linking a deal to a loan request,
+                    and that loan request to a specific interest term. We had to make sure those connections stayed accurate and up to date.
+                </p>
+
+                <p>
+                    We also had to think carefully about timing and state changes — for example, when a deal is created, it needs to update the borrower’s loan status,
+                    move funds, and record the transaction, all in the right order.
+                </p>
+
+                <p>
+                    Along the way, we refined our code structure, improved how we handled errors, and made sure our logic could scale if the project kept growing.
+                </p>
+
+                <h2>Final Thoughts</h2>
+                <p>
+                    SatoshiFund was a great learning experience and a chance to apply our skills to a real-world use case. We got to work on everything from backend logic
+                    to frontend components, and learned a lot about clean architecture, secure user flows, and building around financial rules.
+                </p>
+
+                <p>
+                    You can check out the project <a href="https://github.com/orgs/SatoshiFundAus/repositories" target="_blank" rel="noopener noreferrer">on GitHub</a> if you're curious.
+                </p>
+                </article>
+        </main>
+    </div>
+    <footer>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/experience.html">Experience</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <a href="https://www.linkedin.com/in/adriangidaro/"><img src="https://res.cloudinary.com/adriang/image/upload/v1731541428/LinkedIn_ebynee.png" alt="LinkedIn" id="icon"></a>
+        <a href="https://x.com/adriangidaro"><img src="https://res.cloudinary.com/adriang/image/upload/v1731541428/X_hhz7iq.png" alt="X" id="icon"></a>
+        <a href="https://github.com/adriangcodes"><img src="https://res.cloudinary.com/adriang/image/upload/v1731541427/Github_j5czgw.png" alt="Github" id="icon"></a>
+        <div class="copyright"><p>&copy; Adrian Gidaro 2025</p></div>
+    </footer>
+</body>
+</html>

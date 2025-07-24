@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A developer’s deep dive into building a React-based MVP tool for sustainability materiality assessments - designed to simplify stakeholder input and address real-world ESG reporting challenges.">
+    <title>Building Baby Tools for Sustainability: A Materiality Assessment MVP | Adrian Gidaro</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/adriang/image/upload/v1731541466/AG_Logo_V2_xmnqns.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+    </style>
+</head>
+<body>
+    <div class="sans-footer">
+        <header>
+            <a href="/index.html"><img src="https://res.cloudinary.com/adriang/image/upload/v1731541466/AG_Logo_V2_xmnqns.png" alt="AG Logo" id="logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="/experience.html">Experience</a></li>
+                    <li><a href="/projects.html">Projects</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h1>Building Baby Tools for Sustainability: A Materiality Assessment MVP</h1>
+            <img src="https://res.cloudinary.com/adriang/image/upload/v1753347552/ricardo-gomez-angel-WsEAiVwGrwo-unsplash_bpagsq.jpg" alt="Ricardo Gomez Angel Unsplash" id="project-cover">
+            <article>
+                <p><i>This article is my submission for Coder Academy - ISK1002 Industry Skills II Assessment 2: Technical Blog Post & Prototype, and is also cross-posted to adriang.dev.</i></p>
+                <p>In my previous life, I worked at a sustainability consultancy where our business model (if I’m being honest) was selling hours. Materiality assessments, carbon accounting, ESG strategy… all packaged in neatly scoped projects billed to clients. It worked. But the deeper I got into the work, the more I noticed a growing tension: sustainability managers are short on time, under-resourced, and increasingly expected to do more with less. And the tools available to help them? Expensive, bloated, or nonexistent.</p>
+                <p>That tension, and the desire to do something about this problem, stayed with me when I moved into software development. So, for this assignment, I built an MVP version of something I always wished we could build back then: a simple, hosted stakeholder survey tool for materiality assessments. Not a big shiny SaaS product, just a focused, modular frontend that makes it easier for companies to collect meaningful insights from their stakeholders.</p>
+
+                <h2>The Problem (And Why It’s Worth Solving)</h2>
+                <p>Materiality assessments are a foundational tool in sustainability strategy, used to identify and prioritise the environmental, social, and governance (ESG) issues that matter most to both a business and its stakeholders. These assessments help organisations distinguish between what’s merely interesting and what is truly material - that is, impactful enough to influence decision-making, risk management, and long-term value creation.</p>
+                <p>According to AuditBoard (n.d.), materiality assessments act as a compass, guiding reporting and sustainability efforts to where they’re most meaningful. Plana (n.d.) further emphasises their strategic value, noting that when done well, they create alignment between internal priorities and stakeholder expectations.</p>
+                <p>Despite their importance, the process can be time-consuming, resource-heavy, and the process of running one is often manual and inefficient. Many businesses either:</p>
+                <ol>
+                    <li>Are reliant on expensive consultancy services (Zooid, n.d., KPMG, 2014) to run stakeholder interviews and surveys, placing them out of reach for many sustainability teams, or;</li>
+                    <li>Download a PDF template, paste it into a Google Form or other questionnaire tool and try to make it work.</li>
+                </ol>
+                <p>Neither approach scales well. The first is costly and slow. The second is brittle and limited. What’s more, many of the existing ESG platforms on the market bundle materiality functionality into broader enterprise tools, which often including carbon accounting, emissions tracking, or ESG disclosure. They’re expensive, complex, and opaque (if the pricing page says “Contact Us,” it’s rarely cheap).</p>
+                <p>And then you have the consultancies from boutique (Zooid) to Big 4 (KPMG) et al, all offering free templates but ultimately trying to upsell billable services.</p>
+                <p>No one is building a focused, accessible, standalone tool just for materiality assessments.</p>
+                <p>So I did.</p>
+
+                <h2>The Materiality Assessment Tool</h2>
+                <p>This MVP is a frontend-only application built in React that does one thing well: it collects materiality input from stakeholders.</p>
+                <p>The flow:</p>
+                <p>1. A stakeholder receives a code from the company wanting their input.</p>
+                <p>2. The company directs them to a simple landing page, entering their code:</p>
+                <img src="https://res.cloudinary.com/adriang/image/upload/v1753349201/Screenshot_2025-07-24_at_7.26.08_pm_kqu4eu.png" alt="Landing Page">
+                <p>3a. They fill out their details:</p>
+                <img src="https://res.cloudinary.com/adriang/image/upload/v1753349201/Screenshot_2025-07-24_at_7.25.58_pm_nhl52i.png" alt="Respondent Details">
+                <p>3b. And answer a series of framework-aligned questions:</p>
+                <img src="https://res.cloudinary.com/adriang/image/upload/v1753349201/Screenshot_2025-07-24_at_7.26.19_pm_mvizsr.png" alt="Survey Example">
+                <p>4. Their data is submitted (consensually, and anonymously if required):</p>
+                <img src="https://res.cloudinary.com/adriang/image/upload/v1753349201/Screenshot_2025-07-24_at_7.26.25_pm_kcupx3.png" alt="Consent Questions">
+                <p>No logins, no admin dashboards or analytics (yet). The MVP is deliberately stripped back to a single-screen, frictionless experience that prioritises the stakeholder’s ease of use above all else. The respondent enters a unique code, provides minimal personal information, consents where appropriate, and gets straight into the survey.</p>
+                <p>This intentional simplicity reflects a key insight from my time in sustainability consulting: if the stakeholder experience is clunky or confusing, participation drops, and the whole materiality process risks falling apart. Strong, reliable data depends on making it easy for people to contribute. Everything else comes after.</p>
+
+                <h2>Tech Choices</h2>
+                <p>This is a MERN stack app (MongoDB, Express, React, Node), hosted with:</p>
+                <ul>
+                    <li>MongoDB Atlas (for the database)</li>
+                    <li>Render (for the backend API)</li>
+                    <li>Netlify (for the frontend, once live)</li>
+                </ul>
+                <p>Why this stack? Honestly: speed. I’ve built a few MERN apps lately, so the setup is fast, the ecosystem is familiar, and I can stand up an MVP in days instead of weeks.</p>
+                <p>Sure, SQL might be more appropriate down the line (especially for data analysis and reporting) once the tool progresses beyond MVP, however, I didn’t need rapid data queries or relational joins at this stage (Amazon Web Services, n.d.).</p>
+                <p>The goal was to test the idea, not design the perfect architecture.</p>
+
+                <h2>Survey Components</h2>
+                <p>From a React standpoint, the frontend uses modular components for each question type within a particular sustainability framework:</p>
+                <ul>
+                    <li>SingleChoiceQuestion</li>
+                    <li>MatrixQuestion</li>
+                    <li>RankingQuestion</li>
+                    <li>TextQuestion</li>
+                </ul>
+                <p>Here is an example of the TextQuestion component (where the respondent is asked for a short text-based answer):</p>
+                <img src="https://res.cloudinary.com/adriang/image/upload/v1753349632/Screenshot_2025-07-24_at_7.33.43_pm_xflank.png" alt="TextQuestion Component">
+                <p>Using modular components allowed me to build the survey form in a way that is both scalable and maintainable. Each question type (whether single choice, multiple choice, matrix, or open text) has its own self-contained logic and styling, making it easier to isolate bugs, adjust behaviour, or add new features without touching unrelated code. This approach also lays the groundwork for future expansion, especially if the tool evolves to support multiple sustainability frameworks or custom question templates.</p>
+                <p>Each component is rendered dynamically based on the question type returned from the API. Here’s the core logic for that:</p>
+                <img src="https://res.cloudinary.com/adriang/image/upload/v1753349712/Screenshot_2025-07-24_at_7.35.00_pm_syayia.png" alt="Code 1">
+                <br>
+                <img src="https://res.cloudinary.com/adriang/image/upload/v1753349820/Screenshot_2025-07-24_at_7.36.49_pm_l2cpyb.png" alt="Code 2">
+                <br>
+                <img src="https://res.cloudinary.com/adriang/image/upload/v1753349867/Screenshot_2025-07-24_at_7.37.25_pm_ux30vt.png" alt="Code 3">
+                <br>
+                <img src="https://res.cloudinary.com/adriang/image/upload/v1753349881/Screenshot_2025-07-24_at_7.37.36_pm_ucaw2m.png" alt="Code 4">
+                <p>For each question, it:</p>
+                <ol>
+                    <li>Parses the options with parseOptions.</li>
+                    <li>Uses a switch statement on q.questionType to determine which component to render.</li>
+                    <li>Renders the appropriate React component (SingleChoiceQuestion, MatrixQuestion, etc.) with props including questionText, options, value, and an onChange handler that updates the answers state.</li>
+                </ol>
+                <p>Matrix questions required a bit more care. They originally all shared the same questionType, which broke rendering logic. I updated the seed data to use more descriptive types (from “matrix” to “matrix-importance”, “matrix-impact”, etc.), making it easier to select the right component dynamically.</p>
+                <img src="https://res.cloudinary.com/adriang/image/upload/v1753349991/Screenshot_2025-07-24_at_7.39.38_pm_ohj47o.png" alt="Matrix Breakdown">
+
+                <h2>Testing and Feedback Strategy</h2>
+                <p>There’s no formal unit testing setup yet, though the form has been manually tested through every possible interaction. More importantly, I’m preparing to share the tool with a select group of sustainability professionals in my network.</p>
+                <p>They’ll test the tool from the stakeholder side and answer three key questions:</p>
+                <ul>
+                    <li>Was it easy to use?</li>
+                    <li>Will it help you collect better materiality data?</li>
+                    <li>Would you (or your company) pay for a tool like this?</li>
+                </ul>
+                <p>That feedback will determine the project’s future - whether it becomes a commercial micro-SaaS, an open-source tool, or something to license or merge into a larger existing ESG platform.</p>
+
+                <h2>Ethical and UX Considerations</h2>
+                <h3>1. Consent Architecture</h3>
+                <p>As highlighted earlier, stakeholders must opt in to:</p>
+                <ul>
+                    <li>Be contacted about their answers, and;</li>
+                    <li>Have their personally identifiable information (PII) stored.</li>
+                </ul>
+                <p>If a user fills in their name and email but declines to have their PII stored, the system overrides their input and replaces it with anonymous placeholders:</p>
+                <img src="https://res.cloudinary.com/adriang/image/upload/v1753350222/Screenshot_2025-07-24_at_7.43.32_pm_kl4vyb.png" alt="Consent Overwrite">
+                <p>It’s a small touch, but it protects the user from their own accidental oversharing. Some thoughtful friction for privacy’s sake.</p>
+                <h3>2. Login-Free Flow</h3>
+                <p>Respondents are often time-poor. We designed the user flow to respect that.</p>
+                <p>The backend was originally set up with JWT-based auth across all routes. But once the respondent experience was defined, it became clear that requiring login would create unnecessary barriers (Chen, 2020, FullStory, 2021).</p>
+                <p>Given the data entries are general, non-sensitive inputs, I removed auth from POST /respondent (capturing the respondent’s details) and POST /response (capturing their responses to survey answers), allowing for a one-click, frictionless experience.</p>
+
+                <h2>What I’d Do Differently</h2>
+                <p>If I were to start this project again, the biggest change would be working on the backend and frontend in parallel. While the backend was technically out of scope for this assignment, it still shaped almost every challenge I encountered while building the frontend, and showed me how unfinished a backend can feel once real users and flows are introduced.</p>
+                <p>Initially, the backend-frontend relationship followed a waterfall-style approach: finish the backend first, then move on to the frontend. But that linear structure quickly broke down in practice. Once I began building out the frontend and connecting it to actual routes, it became clear that I needed to:</p>
+                <ul>
+                    <li>Seed meaningful data into the database for local development and UI rendering;</li>
+                    <li>Deploy both the backend (to Render) and the database (MongoDB Atlas) so the frontend could be tested outside of localhost;</li>
+                    <li>Adjust various API responses so they were more predictable and usable on the frontend; and</li>
+                    <li>Rethink certain routes (particularly around respondent creation) to align with a frictionless user experience.</li>
+                </ul>
+                <p>All of this pointed to one key learning: backend and frontend development are never as isolated as the planning documents might suggest. Even if responsibilities are split between developers, the two sides of the app need to be shaped around each other, especially when the end goal is a smooth, real-world user flow.</p>
+                <p>This experience has shifted how I think about scoping MVPs. If the frontend is going to be lean and user-focused, the backend needs to be equally pragmatic. Not over-engineered for hypothetical or future features, but ready to support what’s actually needed at launch.</p>
+
+                <h2>What This Taught Me</h2>
+                <p>More than anything, this project confirmed something important about how I like to build: I need context. I’m not interested in building software for its own sake, or churning out feature-for-feature clones. What drives me is solving real problems — especially ones I’ve felt firsthand.</p>
+                <p>This wasn’t just a generic survey app. It was born out of experience, shaped by the hours I’ve spent working in sustainability consulting, helping clients run materiality assessments the slow, expensive way. I’ve lived the friction. I’ve scoped the projects. So building this tool wasn’t a hypothetical exercise - it was a way to address pain points I know inside out.</p>
+                <p>That sense of context changed how I approached every decision. It made trade-offs clearer. It helped me prioritise UX over theoretical best practices. It reminded me that software doesn’t exist in a vacuum. Rather, it lives or dies by whether it actually makes someone’s life easier.</p>
+                <p>This project also helped me connect dots between different parts of my background: product thinking, stakeholder empathy, and technical execution. It showed me that when those threads align, building feels purposeful. And that’s how I want to keep building moving forward.</p>
+
+                <h2>What’s Next?</h2>
+                <ol>
+                    <li>Host the frontend, collect &amp; assess feedback from my network</li>
+                    <li>Pending testing feedback, build the admin dashboard (survey creation, response viewing, data export)</li>
+                    <li>Possible database migration to PostgreSQL for cleaner analytics</li>
+                    <li>Decide on monetisation strategy:
+                        <ul>
+                            <li><strong>If feedback is strong and users see value:</strong> MicroSaaS ($5–20/month for unlimited users)</li>
+                            <li><strong>If price sensitivity is high:</strong> Open-source or license/sell it</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>This didn’t begin as a technical exercise - it began as a problem I’d lived through and wanted to solve. The assignment gave me the excuse to start. What happens next is up to the people it’s built for.</p>
+                <p><i>Published July 2025</i></p>
+
+                <h2>References</h2>
+                <ul>
+                    <li>Amazon Web Services (n.d.). <em>The difference between MongoDB and PostgreSQL</em>. [online] Available at: <a href="https://aws.amazon.com/compare/the-difference-between-mongodb-and-postgresql/" target="_blank">https://aws.amazon.com/compare/the-difference-between-mongodb-and-postgresql/</a> [Accessed 4 Jul. 2025].</li>
+                    <li>AuditBoard (n.d.). <em>What is a materiality assessment?</em> [online] Available at: <a href="https://auditboard.com/blog/materiality-assessment" target="_blank">https://auditboard.com/blog/materiality-assessment</a> [Accessed 4 Jul. 2025].</li>
+                    <li>Chen, Nicholas (2020). <em>Friction and UX Design</em>. [online] Medium. Available at: <a href="https://nichwch.medium.com/friction-and-ux-design-46cc900d6286" target="_blank">https://nichwch.medium.com/friction-and-ux-design-46cc900d6286</a> [Accessed 6 Jul. 2025].</li>
+                    <li>FullStory (2021). <em>User friction: What it is, why it matters, and how to fix it</em>. [online] Available at: <a href="https://www.fullstory.com/blog/user-friction/" target="_blank">https://www.fullstory.com/blog/user-friction/</a> [Accessed 6 Jul. 2025].</li>
+                    <li>Greenly (n.d.). <em>What is a Materiality Assessment?</em> [online] Available at: <a href="https://greenly.earth/en-gb/blog/company-guide/what-is-a-materiality-assessment" target="_blank">https://greenly.earth/en-gb/blog/company-guide/what-is-a-materiality-assessment</a> [Accessed 4 Jul. 2025].</li>
+                    <li>Holder, A. (2022). <em>Helping others cite your software</em>. [online] AlexStormwood.com. Available at: <a href="https://alexstormwood.com/articles/helpingothersciteyoursoftware/" target="_blank">https://alexstormwood.com/articles/helpingothersciteyoursoftware/</a> [Accessed 4 Jul. 2025].</li>
+                    <li>KPMG (2014). <em>Materiality Assessment: Questions to Ask</em>. [pdf] Available at: <a href="https://assets.kpmg.com/content/dam/kpmg/pdf/2014/10/materiality-assessment.pdf" target="_blank">https://assets.kpmg.com/content/dam/kpmg/pdf/2014/10/materiality-assessment.pdf</a> [Accessed 4 Jul. 2025].</li>
+                    <li>Novata (n.d.). <em>Company</em>. [online] Available at: <a href="https://www.novata.com/company/" target="_blank">https://www.novata.com/company/</a> [Accessed 6 Jul. 2025].</li>
+                    <li>Plana (n.d.). <em>Materiality Assessment &amp; Sustainability Strategy</em>. [online] Plana.earth Academy. Available at: <a href="https://plana.earth/academy/materiality-assessment-sustainability-strategy" target="_blank">https://plana.earth/academy/materiality-assessment-sustainability-strategy</a> [Accessed 4 Jul. 2025].</li>
+                    <li>Zooid (n.d.). <em>Tools – Zooid Sustainability Consulting</em>. [online] Available at: <a href="https://www.zooid.com.au/tools/" target="_blank">https://www.zooid.com.au/tools/</a> [Accessed 4 Jul. 2025].</li>
+                </ul>
+            </article>
+        </main>
+    </div>
+    <footer>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/experience.html">Experience</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <a href="https://www.linkedin.com/in/adriangidaro/"><img src="https://res.cloudinary.com/adriang/image/upload/v1731541428/LinkedIn_ebynee.png" alt="LinkedIn" id="icon"></a>
+        <a href="https://x.com/adriangidaro"><img src="https://res.cloudinary.com/adriang/image/upload/v1731541428/X_hhz7iq.png" alt="X" id="icon"></a>
+        <a href="https://github.com/adriangcodes"><img src="https://res.cloudinary.com/adriang/image/upload/v1731541427/Github_j5czgw.png" alt="Github" id="icon"></a>
+        <div class="copyright"><p>&copy; Adrian Gidaro 2025</p></div>
+    </footer>
+</body>
+</html>
